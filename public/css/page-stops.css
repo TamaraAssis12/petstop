@@ -102,3 +102,9 @@ a.create-stops:hover {
 }
 
 /* .leaflet-conteiner {} */
+
+.leaflet-container {
+  font: 700 2rem/1 'Nunito', sans-serif;
+
+  z-index: 5;
+}

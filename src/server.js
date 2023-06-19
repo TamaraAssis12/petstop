@@ -9,6 +9,9 @@ const pages = require("./pages.js");
 const server = express();
 server
   // Utilizando os arquivos estáticos
+  .use(express.urlencoded({ extended: true }))
+
+  // utilizando os arquivos estáticos
   .use(express.static("public"))
 
   // Configurar template engine
@@ -20,6 +23,7 @@ server
   .get("/stop", pages.stop)
   .get("/stops", pages.stops)
   .get("/create-stop", pages.createStop)
+  .post("/save-stop", pages.saveStop);
   
 
 // Ligando o servidor

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ponto 1 | PetStop</title>
+  <title>{{stop.name}} | PetStop</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -14,12 +14,14 @@
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <link rel="icon" href="/images/logo-icon.png" />
+
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/animations.css" />
   <link rel="stylesheet" href="/css/sidebar.css" />
   <link rel="stylesheet" href="/css/map.css" />
   <link rel="stylesheet" href="/css/buttons.css" />
   <link rel="stylesheet" href="/css/page-stop.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -43,46 +45,29 @@
 
     <main class="animate-appear with-sidebar">
       <div class="stop-details">
-        <img src="/images/home.jpg" alt="" />
+        <img src="{{stop.firstImage}}" alt="{{stop.name}}" />
 
         <div class="images">
+          {{#each stop.images}}
           <button onclick="selectImage(event)" class="active" type="button">
-            <img src="https://source.unsplash.com/random?id=1" alt=" Ponto 1" />
+            <img src="{{this}}" alt="{{stop.name}}" />
           </button>
+          {{/each}}
 
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=2" alt=" Ponto 1" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=3" alt=" Ponto 1" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=4" alt=" Ponto 1" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=5" alt=" Ponto 1" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=6" alt=" Ponto 1" />
-          </button>
         </div>
 
         <div class="stop-details-content">
-          <h1>Ponto 1</h1>
+          <h1>{{stop.name}}</h1>
           <p>
-            Ponto localizado em x lugar. Ponto de Referência: próximo ao
-            xxxxxxxxxxxxxxxxxxxx
+           {{stop.endereco}}, {{stop.number_endereco}}, {{stop.city}}, {{stop.reference_point}}
           </p>
 
           <div class="map-container">
             <div id="mapid"></div>
+            <span data-lat="{{stop.lat}}" data-lng="{{stop.lng}}"></span>
 
             <footer>
-              <a href="">Ver rotas no Google Maps</a>
+              <a target="_blank" href="https://maps.google.com/mobile?q={{stop.lat}},{{stop.lng}}&z=15">Ver rotas no Google Maps</a>
             </footer>
           </div>
 
