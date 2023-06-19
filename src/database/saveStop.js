@@ -1,4 +1,4 @@
-function saveStop(db, stop) {
+function saveStopDB(db, stop) {
   return db.run(`
       INSERT INTO stops (
         lat,
@@ -26,4 +26,4 @@ function saveStop(db, stop) {
   `);
 }
 
-module.exports = saveStop;
+export { saveStopDB };
