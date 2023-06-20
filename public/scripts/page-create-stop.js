@@ -38,7 +38,7 @@ map.on("click", (event) => {
     .then(function (data) {
       document.querySelector("[name=endereco]").value = data.address.road || "";
       document.querySelector("[name=numero]").value = data.address.house_number || "";
-    //   document.querySelector("[name=cep]").value = data.address.postcode || "";
+      document.querySelector("[name=bairro]").value = data.address.suburb || ""; 
       document.querySelector("[name=cidade]").value = data.address.city || "";
       document.querySelector("[name=estado]").value = data.address.state || "";
     });

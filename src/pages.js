@@ -63,6 +63,7 @@ export const saveStop = async (req, res) => {
       name_point: fields.name_point,
       endereco: fields.endereco,
       number_endereco: fields.number_endereco,
+      bairro: fields.bairro,
       city: fields.city,
       state: fields.state,
       reference_point: fields.reference_point,

@@ -15,6 +15,7 @@ async function execute(db) {
         name_point TEXT,
         endereco TEXT,
         number_endereco TEXT,
+        bairro TEXT,
         city TEXT,
         state TEXT,
         reference_point TEXT,
@@ -27,6 +28,8 @@ async function execute(db) {
     throw error; // Lançar o erro novamente para que seja capturado externamente
   }
 }
+
+
 
 const dbPromise = Database.open(path.join(databaseDir, "database.sqlite"))
   .then(execute)
