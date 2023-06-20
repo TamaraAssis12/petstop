@@ -27,9 +27,9 @@ async function execute(db) {
     console.error("Erro ao executar a consulta no banco de dados:", error);
     throw error; // Lançar o erro novamente para que seja capturado externamente
   }
+
+
 }
-
-
 
 const dbPromise = Database.open(path.join(databaseDir, "database.sqlite"))
   .then(execute)

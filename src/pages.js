@@ -54,6 +54,7 @@ export const saveStop = async (req, res) => {
     return res.send("Todos os campos devem ser preenchidos!");
   }
 
+
   try {
     // salvar um ponto
     const db = await dbPromise;
@@ -62,13 +63,13 @@ export const saveStop = async (req, res) => {
       lng: fields.lng,
       name_point: fields.name_point,
       endereco: fields.endereco,
-      number_endereco: fields.number_endereco,
+      number_endereco: fields.numero,
       bairro: fields.bairro,
-      city: fields.city,
-      state: fields.state,
-      reference_point: fields.reference_point,
+      city: fields.cidade,
+      state: fields.estado,
+      reference_point: fields.about,
       images: fields.images,
-      type_point: fields.type_point,
+      type_point:fields.pha,
     });
 
     // redirecionamento

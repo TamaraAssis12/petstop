@@ -43,6 +43,7 @@ map.on("click", (event) => {
       document.querySelector("[name=estado]").value = data.address.state || "";
     });
 });
+ 
 
 // add campo de fotos
 function addPhotoField() {
