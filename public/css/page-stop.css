@@ -163,3 +163,7 @@ fieldset legend{
     margin-bottom: 4rem;
     padding-bottom: 2.4rem;
 }
+
+.swal2-popup{
+  font-size: inherit;
+}

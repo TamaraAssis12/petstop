@@ -72,3 +72,22 @@ function toggleSelect(event) {
   );
   input.value = button.dataset.value;
 }
+
+// alerta de confirmação de abastecimento
+function confirmarAbastecimento(){
+  Swal.fire({
+  title: 'Deseja salvar as mudanças?',
+  showDenyButton: true,
+  showCancelButton: true,
+  cancelButtonText: 'Cancelar',
+  confirmButtonText: 'Salvar',
+  denyButtonText: `Não salvar`,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire('Salvo!', '', 'success')
+  } else if (result.isDenied) {
+    Swal.fire('As alterações não foram salvas', '', 'info')
+  }
+})
+} 
