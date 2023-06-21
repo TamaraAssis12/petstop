@@ -31,8 +31,9 @@
 <body>
   <div id="page-create-stop">
     <aside class="animate-rigth sidebar">
-
-      <img src="/images/map-marker.svg" alt="Ponto">
+      <a href="http://127.0.0.1:5500/">
+        <img src="/images/map-marker.svg" alt="Ponto">
+      </a>
 
       <footer>
         <button onclick="history.back()">
@@ -52,8 +53,8 @@
 
           <div class="map-container">
             <div id="mapid"></div>
-            <input type="hidden" name="lat"/>
-            <input type="hidden" name="lng"/>
+            <input type="hidden" name="lat" />
+            <input type="hidden" name="lng" />
             <footer>
               <a href="#" id="select-point">
                 Clique no mapa para adicionar a localização
@@ -63,27 +64,27 @@
 
           <div class="input-block">
             <label for="endereco">Endereço</label>
-            <input id="endereco" name="endereco" required/>
+            <input id="endereco" name="endereco" required />
           </div>
 
           <div class="input-block">
             <label for="numero">Número</label>
-            <input id="numero" placeholder="0" name="numero" required/>
+            <input id="numero" placeholder="0" name="numero" required />
           </div>
 
           <div class="input-block">
             <label for="bairro">Bairro</label>
-            <input id="bairro" name="bairro" required/>
+            <input id="bairro" name="bairro" required />
           </div>
 
           <div class="input-block">
             <label for="cidade">Cidade</label>
-            <input id="cidade" name="cidade" required/>
+            <input id="cidade" name="cidade" required />
           </div>
 
           <div class="input-block">
             <label for="estado">Estado</label>
-            <input id="estado" name="estado" required/>
+            <input id="estado" name="estado" required />
           </div>
 
 
@@ -94,7 +95,7 @@
 
           <div class="input-block">
             <label for="whatsapp">Número de whatsapp</label>
-            <input id="whatsapp" name="whatsapp" required/>
+            <input id="whatsapp" name="whatsapp" required />
           </div>
 
           <div class="input-block images">
@@ -120,23 +121,17 @@
           <legend>Tipo de Ponto</legend>
 
           <div class="input-block">
-            <label for="petstop-hidtatacao-alimentação">Qual ponto deseja cadastrar?</label>
-            <input 
-            type="hidden" 
-            id="pha" 
-            name="pha" 
-            value="1" 
-            required
-            />
+            <label for="petstop-hidratacao-alimentação">Qual ponto deseja cadastrar?</label>
+            <input type="hidden" id="pha" name="pha" value="1" required />
 
             <div class="button-select">
-              <button data-value="1" onclick="toggleSelect(event)" type="button" id="button-hidratacao">
+              <button data-value="1" onclick="toggleSelect(event)" type="button" id="btnPontoHidratacao">
                 Hidratação
               </button>
-              <button data-value="2" onclick="toggleSelect(event)" type="button" id="button-alimentacao">
+              <button data-value="2" onclick="toggleSelect(event)" type="button" id="btnPontoAlimentacao">
                 Alimentação
               </button>
-              <button data-value="3" onclick="toggleSelect(event)" type="button" id="button-ambos" class="active">
+              <button data-value="3" onclick="toggleSelect(event)" type="button" id="btnAlimentacaoHidratacao" class="active">
                 Ambos
               </button>
             </div>

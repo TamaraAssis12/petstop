@@ -59,7 +59,7 @@
         <div class="stop-details-content">
           <h1>PetStop {{stop.bairro}} #{{stop.id}}</h1>
           <p>
-           {{stop.endereco}}, {{stop.number_endereco}}, {{stop.bairro}}, {{stop.city}}, {{stop.reference_point}}
+            {{stop.endereco}}, {{stop.number_endereco}}, {{stop.bairro}}, {{stop.city}}, {{stop.reference_point}}
           </p>
 
           <div class="map-container">
@@ -67,7 +67,8 @@
             <span data-lat="{{stop.lat}}" data-lng="{{stop.lng}}"></span>
 
             <footer>
-              <a target="_blank" href="https://maps.google.com/mobile?q={{stop.lat}},{{stop.lng}}&z=15">Ver rotas no Google Maps</a>
+              <a target="_blank" href="https://maps.google.com/mobile?q={{stop.lat}},{{stop.lng}}&z=15">Ver rotas no
+                Google Maps</a>
             </footer>
           </div>
 
@@ -91,18 +92,36 @@
                 <p>28/05/2023 às 14:00</p>
               </div>
             </div>
-            
 
-            <div class="open-on-weekends">
+
+            <div class="open-on-weekends open">
               <img src="/images/info.svg" alt="Informações" />
               Venha sempre que puder!
             </div>
           </div>
 
-          <button class="primary-button" type="button">
-            <img src="/images/whatsapp.svg" alt="Chamar no WhatsApp" />
-            Entrar em Contato
-          </button>
+          <fieldset>
+            <legend>Abastecer esse ponto?</legend>
+
+            <div class="input-block">
+              <label for="abastece-hidratacao-alimentacao">Qual ponto deseja cadastrar?</label>
+              <input type="hidden" id="pha" name="pha" value="1" required />
+
+              <div class="button-select">
+                <button data-value="1" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoAgua">
+                  Água
+                </button>
+                <button data-value="2" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoRacao">
+                  Ração
+                </button>
+                <button data-value="3" onclick="toggleSelect(event)" type="button" id="btnAguaRacao" class="active">
+                  Água e Ração
+                </button>
+              </div>
+              <button type="submit" class="primary-button">
+                Abastecer</button>
+            </div>
+          </fieldset>
         </div>
       </div>
     </main>

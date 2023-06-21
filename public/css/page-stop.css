@@ -103,10 +103,12 @@ main{
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 2rem;
+
+  margin-bottom: 6.4rem;
 }
 
 /* .open-details div{
-  padding: 3.2rem 2.4rem;
+  
 } */
 
 .open-details img{
@@ -120,11 +122,15 @@ main{
   border-radius: 20px;
 
   color: #5c8599;
+
+  padding: 3.2rem 2.4rem;
 }
 
 .open-details .open-on-weekends{
   
   border-radius: 20px;
+
+  padding: 3.2rem 2.4rem;
 }
 
 .open-on-weekends.open {
@@ -137,4 +143,23 @@ main{
   background: linear-gradient(154.16deg, #FCF0F4 7.85%, #FFFFFF 91.03%);
   border: 1px solid #FFBCD4;
   color: #FF999D;
+}
+
+fieldset{
+    border: 0;
+}
+
+fieldset + fieldset{
+    margin-top: 8rem;
+}
+
+fieldset legend{
+    width: 100%;
+    font-size: 3.2rem;
+    line-height: 1.5rem;
+    color: #5c8599;
+    font-weight: 700;
+    border-bottom: 1px solid #d3e2e5;
+    margin-bottom: 4rem;
+    padding-bottom: 2.4rem;
 }

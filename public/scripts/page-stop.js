@@ -53,3 +53,22 @@ function selectImage(event) {
   // adicionar a classe .active para este botão
   button.classList.add("active");
 }               
+
+// select tipo de ponto
+function toggleSelect(event) {
+  // retirar a class .active (dos botões)
+  document.querySelectorAll(".button-select button").forEach(function (button) {
+    button.classList.remove("active");
+  });
+
+  // colocar a class .active nesse botão clicado
+  const button = event.currentTarget;
+
+  button.classList.add("active");
+
+  // atualizar o meu input hidden com o valor selecionado
+  const input = document.querySelector(
+    "[name='abastece-hidratacao-alimentacao']"
+  );
+  input.value = button.dataset.value;
+}
