@@ -104,7 +104,7 @@
             <div class="images-upload" id="images">
 
               <div class="new-upload">
-                <input name="images" type="file" placeholder="Cole o link da foto aqui" required />
+                <input name="images" type="file" required />
                 <span onclick="deleteField(event)">
                   <img src="/images/remove-file.svg" alt="Remover Foto">
                 </span>
@@ -135,7 +135,7 @@
                 Ambos
               </button>
             </div>
-            <button type="submit" class="primary-button">
+            <button type="submit" class="primary-button" onclick="confirmarAbastecimento()">
               Cadastrar</button>
           </div>
         </fieldset>
