@@ -7,9 +7,9 @@ const databaseDir = path.join(__dirname, "src/database"); // Caminho para a past
 
 async function execute(db) {
   try {
-    return await db.exec(`
-      CREATE TABLE IF NOT EXISTS stops (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+    return await db.exec(` 
+      CREATE TABLE IF NOT EXISTS stops ( 
+        id INTEGER PRIMARY KEY AUTOINCREMENT, 
         lat TEXT,
         lng TEXT,
         name_point TEXT,
@@ -23,6 +23,7 @@ async function execute(db) {
         type_point TEXT
       );
     `);
+    
   } catch (error) {
     console.error("Erro ao executar a consulta no banco de dados:", error);
     throw error; // Lançar o erro novamente para que seja capturado externamente

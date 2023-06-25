@@ -37,13 +37,13 @@ map.on("click", (event) => {
     })
     .then(function (data) {
       document.querySelector("[name=endereco]").value = data.address.road || "";
-      document.querySelector("[name=numero]").value = data.address.house_number || "";
-      document.querySelector("[name=bairro]").value = data.address.suburb || ""; 
+      document.querySelector("[name=numero]").value =
+        data.address.house_number || "";
+      document.querySelector("[name=bairro]").value = data.address.suburb || "";
       document.querySelector("[name=cidade]").value = data.address.city || "";
       document.querySelector("[name=estado]").value = data.address.state || "";
     });
 });
- 
 
 // add campo de fotos
 function addPhotoField() {
@@ -94,7 +94,7 @@ function toggleSelect(event) {
 
   // atualizar o meu input hidden com o valor selecionado
   const input = document.querySelector(
-    "[name='petstop-hidratacao-alimentação']"
+    "[name='pha']"
   );
   input.value = button.dataset.value;
 }
