@@ -2,6 +2,8 @@
 import express from "express";
 import path from "path";
 import { index, stop, stops, createStop, saveStop } from "./pages.js";
+import Handlebars from "../node_modules/handlebars/dist/handlebars.js";
+import helpers  from "../src/helpers.js";
 
 // console.log(pages);
 
@@ -9,6 +11,10 @@ import { index, stop, stops, createStop, saveStop } from "./pages.js";
 
 const __dirname = path.resolve();
 const server = express();
+
+//registrando a helpers
+Handlebars.registerHelper("IsEqual", helpers);
+
 server
   // Utilizando os arquivos estáticos
   .use(express.urlencoded({ extended: true }))
