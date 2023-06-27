@@ -79,3 +79,47 @@ export const saveStop = async (req, res) => {
     return res.send("Erro no banco de dados!");
   }
 };
+
+//Login
+export const login = (req, res) => {
+  return res.render("login");
+}
+
+export const loginPost = (req, res) => {
+  const fields = req.body;
+
+  // validar se todos os campos estão preenchidos
+  if (Object.values(fields).includes("")) {
+    return res.send("Todos os campos devem ser preenchidos!");
+  }
+
+  // validar se a senha está correta
+  if (fields.password !== "123") {
+    return res.send("Senha incorreta!");
+  }
+
+  // redirecionamento
+  return res.redirect("/stops");
+}
+
+//Signup - Cadastro
+export const signup = (req, res) => {
+  return res.render("signup");
+}
+
+export const signupPost = (req, res) => {
+  const fields = req.body;
+
+  // validar se todos os campos estão preenchidos
+  if (Object.values(fields).includes("")) {
+    return res.send("Todos os campos devem ser preenchidos!");
+  }
+
+  // validar se a senha está correta
+  if (fields.password !== fields.password2) {
+    return res.send("As senhas não são iguais!");
+  }
+
+  // redirecionamento
+  return res.redirect("/stops");
+}

@@ -126,22 +126,22 @@
 
                //Condição para mostrar o botão de abastecimento de acordo com o tipo de ponto cadastrado
 
-              {{#isEqual stop.pha "1"}}
+              {{!-- {{#isEqual stop.pha "1"}} --}}
               <div class="button-select">
                 <button data-value="1" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoAgua">
                   Água
                 </button>
-              {{else if isEqual stop.pha "2"}}
+              {{!-- {{else if isEqual stop.pha "2"}} --}}
                 <button data-value="2" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoRacao">
                   Ração
                 </button>
 
-              {{else}}
+              {{!-- {{else}} --}}
                 <button data-value="3" onclick="toggleSelect(event)" type="button" id="btnAguaRacao" class="active">
                   Água e Ração
                 </button>
               </div>
-              {{/isEqual}}
+              {{!-- {{/isEqual}} --}}
               <button type="submit" onclick="confirmarAbastecimento()" id="btnSalvarAbastecimento"
                 class="primary-button">
                 Abastecer</button>

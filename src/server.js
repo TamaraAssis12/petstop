@@ -1,9 +1,9 @@
 // Importar dependencia
 import express from "express";
 import path from "path";
-import { index, stop, stops, createStop, saveStop } from "./pages.js";
-import Handlebars from "../node_modules/handlebars/dist/handlebars.js";
-import helpers  from "../src/helpers.js";
+import { index, stop, stops, createStop, saveStop, login, signup } from "./pages.js";
+// import Handlebars from "../node_modules/handlebars/dist/handlebars.js";
+// import registerHelper   from "../src/helpers.js";
 
 // console.log(pages);
 
@@ -13,7 +13,7 @@ const __dirname = path.resolve();
 const server = express();
 
 //registrando a helpers
-Handlebars.registerHelper("IsEqual", helpers);
+// Handlebars.registerHelper("IsEqual", helpers);
 
 server
   // Utilizando os arquivos estáticos
@@ -31,6 +31,8 @@ server
   .get("/stop", stop)
   .get("/stops", stops)
   .get("/create-stop", createStop)
+  .get("/login", login)
+  .get("/signup", signup)
   .post("/save-stop", saveStop);
 
 // Ligando o servidor

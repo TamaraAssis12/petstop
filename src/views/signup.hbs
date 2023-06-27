@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastre-se</title>
+
+    <link rel="icon" href="/images/logo-icon.png" />
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/buttons.css" />
+    <link rel="stylesheet" href="/css/page-create-stop.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="page-create-stop">
+        <aside class="animate-rigth sidebar">
+            <a href="http://127.0.0.1:5500/">
+                <img src="/images/map-marker.svg" alt="Ponto">
+            </a>
+
+            <footer>
+                <button onclick="history.back()">
+                    <img src="/images/arrow-back.svg" alt="Voltar">
+                </button>
+            </footer>
+
+        </aside>
+
+        <main class="animate-appear with-sidebar">
+
+            <form action="save-stop" method="post" onsubmit="validate(event)">
+                <fieldset>
+                    <legend>Cadastre-se</legend>
+                </fieldset>
+
+                <div class="input-block">
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="nome" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="confirmar-senha">Confirmar senha</label>
+                    <input type="password" id="confirmar-senha" name="confirmar-senha" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" name="telefone" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="cep">CEP</label>
+                    <input id="cep" name="cep" maxlength="8
+                    " onblur="pesquisacep(this.value);" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="rua">Logradouro</label>
+                    <input id="rua" name="rua" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="numero">Número</label>
+                    <input id="numero" placeholder="0" name="numero" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="complemento">Complemento</label>
+                    <input id="complemento" name="complemento" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="bairro">Bairro</label>
+                    <input id="bairro" name="bairro" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="cidade">Cidade</label>
+                    <input id="cidade" name="cidade" required />
+                </div>
+
+                <div class="input-block">
+                    <label for="uf">Estado</label>
+                    <input id="uf" name="uf" required />
+                </div>
+
+                <button type="submit" class="primary-button" onclick="confirmarAbastecimento()">
+                    Cadastrar</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="/public/scripts/cep.js"></script>
+</body>
+
+</html>
