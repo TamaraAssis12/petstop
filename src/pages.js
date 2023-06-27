@@ -1,5 +1,8 @@
 import dbPromise from "./database/db.js";
 import { saveStopDB } from "./database/saveStop.js";
+import express from 'express';
+import multer from 'multer';
+
 
 export const index = (req, res) => {
   return res.render("index");
@@ -18,11 +21,11 @@ export const stop = async (req, res) => {
     stop.images = stop.images.split(",");
     stop.firstImage = stop.images[0];
 
-    if (stop.open_on_weekends == "0") {
-      stop.open_on_weekends = false;
-    } else {
-      stop.open_on_weekends = true;
-    }
+    // if (stop.open_on_weekends == "0") { 
+    //   stop.open_on_weekends = false;
+    // } else {
+    //   stop.open_on_weekends = true;
+    // }
 
     return res.render("stop", { stop });
   } catch (error) {
@@ -79,6 +82,19 @@ export const saveStop = async (req, res) => {
     return res.send("Erro no banco de dados!");
   }
 };
+
+// Configurar uma rota post para lidar com o envio da imagem.
+// Essa rota deve receber a imagem, salvar no servidor e retornar a imagem para o front-end.
+const app = express();
+ export const upload = multer({ dest: 'uploads/' });
+
+app.post('/upload', upload.single('image'), (req, res) => {
+  // Aqui você pode acessar a imagem enviada usando req.file
+  // Faça o processamento necessário, como salvar a imagem em um diretório específico
+
+  res.send('Upload de imagem concluído!');
+});
+
 
 //Login
 export const login = (req, res) => {

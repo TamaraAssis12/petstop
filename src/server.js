@@ -22,6 +22,7 @@ server
   // utilizando os arquivos estáticos
   .use(express.static("public"))
 
+
   // Configurar template engine
   .set("views", path.join(__dirname, "src/views"))
   .set("view engine", "hbs")
@@ -33,6 +34,7 @@ server
   .get("/create-stop", createStop)
   .get("/login", login)
   .get("/signup", signup)
+  .post("/uploads")
   .post("/save-stop", saveStop);
 
 // Ligando o servidor

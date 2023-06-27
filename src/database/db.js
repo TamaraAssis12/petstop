@@ -20,7 +20,7 @@ async function execute(db) {
         state TEXT,
         reference_point TEXT,
         images TEXT,
-        type_point TEXT
+        type_point INTEGER
       );
     `);
     
