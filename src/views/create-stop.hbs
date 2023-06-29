@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
 
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +27,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+ 
 </head>
 
 <body>
@@ -47,14 +50,14 @@
 
     <main class="animate-appear with-sidebar">
 
-      <form action="save-stop" method="post" onsubmit="validate(event)">
+      <form action="save-stop" method="post" enctype="multipart/form-data" onsubmit="validate(event)">
         <fieldset>
           <legend>Dados</legend>
 
           <div class="map-container">
             <div id="mapid"></div>
-            <input type="hidden" name="lat" />
-            <input type="hidden" name="lng" />
+            <input type="hidden" name="lat" id="lat" />
+            <input type="hidden" name="lng"id="lng" />
             <footer>
               <a href="#" id="select-point">
                 Clique no mapa para adicionar a localização
@@ -63,55 +66,59 @@
           </div>
 
           <div class="input-block">
-            <label for="endereco">Endereço</label>
+            <label for="endereco">Endereço<span class="campo-obrigatorio">*</span></label>
             <input id="endereco" name="endereco" required />
           </div>
 
           <div class="input-block">
-            <label for="numero">Número</label>
+            <label for="numero">Número<span class="campo-obrigatorio">*</span></label>
             <input id="numero" placeholder="0" name="numero" required />
           </div>
 
           <div class="input-block">
-            <label for="bairro">Bairro</label>
+            <label for="bairro">Bairro<span class="campo-obrigatorio">*</span>
+            </label>
             <input id="bairro" name="bairro" required />
           </div>
 
           <div class="input-block">
-            <label for="cidade">Cidade</label>
+            <label for="cidade">Cidade<span class="campo-obrigatorio">*</span>
+            </label>
             <input id="cidade" name="cidade" required />
           </div>
 
           <div class="input-block">
-            <label for="estado">Estado</label>
+            <label for="estado">Estado<span class="campo-obrigatorio">*</span></label>
             <input id="estado" name="estado" required />
           </div>
 
 
           <div class="input-block">
-            <label for="ponto-referencia">Ponto de Referência <span>Máximo de 100 caracteres</span></label>
+            <label for="ponto-referencia">Ponto de Referência<span class="campo-obrigatorio">*</span><span>Máximo de 100 caracteres</span></label>
             <textarea id="about" name="about" required></textarea>
           </div>
 
           <div class="input-block">
-            <label for="whatsapp">Número de whatsapp</label>
+            <label for="whatsapp">Número de whatsapp<span class="campo-obrigatorio">*</span></label>
             <input id="whatsapp" name="whatsapp" required />
           </div>
 
           <div class="input-block images">
-            <label for="images">Foto</label>
+            <label for="images">Foto<span class="campo-obrigatorio">*</span></label>
 
             <div class="images-upload" id="images">
 
               <div class="new-upload">
-                <input name="images" type="file" required />
+                <input name="images" id="images" type="file"  required />
+                <input type="hidden" id="uploadedImages" name="uploadedImages" />
                 <span onclick="deleteField(event)">
                   <img src="/images/remove-file.svg" alt="Remover Foto">
                 </span>
               </div>
 
+
             </div>
-            <button onclick="addPhotoField()" type="button">
+            <button id="addPhoto" onclick="addPhotoField()" type="button">
               <img src="/images/add-file.svg" alt="Adicionar foto">
             </button>
           </div>
@@ -121,7 +128,7 @@
           <legend>Tipo de Ponto</legend>
 
           <div class="input-block">
-            <label for="petstop-hidratacao-alimentação">Qual ponto deseja cadastrar?</label>
+            <label for="petstop-hidratacao-alimentação">Qual ponto deseja cadastrar?<span class="campo-obrigatorio">*</span></label>
             <input type="hidden" id="pha" name="pha" value="1" required />
 
             <div class="button-select">

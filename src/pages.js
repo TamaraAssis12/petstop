@@ -1,7 +1,6 @@
 import dbPromise from "./database/db.js";
 import { saveStopDB } from "./database/saveStop.js";
-import express from 'express';
-import multer from 'multer';
+
 
 
 export const index = (req, res) => {
@@ -51,6 +50,8 @@ export const createStop = (req, res) => {
 
 export const saveStop = async (req, res) => {
   const fields = req.body;
+  const uploadedImages = JSON.parse(fields.uploadedImages || "[]");
+
 
   // validar se todos os campos estão preenchidos
   if (Object.values(fields).includes("")) {
@@ -85,15 +86,7 @@ export const saveStop = async (req, res) => {
 
 // Configurar uma rota post para lidar com o envio da imagem.
 // Essa rota deve receber a imagem, salvar no servidor e retornar a imagem para o front-end.
-const app = express();
- export const upload = multer({ dest: 'uploads/' });
 
-app.post('/upload', upload.single('image'), (req, res) => {
-  // Aqui você pode acessar a imagem enviada usando req.file
-  // Faça o processamento necessário, como salvar a imagem em um diretório específico
-
-  res.send('Upload de imagem concluído!');
-});
 
 
 //Login

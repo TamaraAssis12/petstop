@@ -27,29 +27,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  
-          <script>
-            // Cria campo se type_point for 1
-            function Seletor() {
-              var ponto = {{ stop.type_point }};
 
-            if (ponto == false) {
-              document.getElementById("btnAbastecimentoAgua").style.display = "none";
-              document.getElementById("btnAbastecimentoRacao").style.display = "none";
-              document.getElementById("btnAbastecimentoRacaoAgua").style.display = "none";
-            }
+  <script>
+    // Cria campo se type_point for 1
+    function Seletor() {
+      var ponto = {{ stop.type_point }};
 
-            if (ponto == 1) {
-              document.getElementById("btnAbastecimentoRacao").style.display = "none";
-              document.getElementById("btnAbastecimentoRacaoAgua").style.display = "none";
-            }
-            if (ponto == 2) {
-              document.getElementById("btnAbastecimentoAgua").style.display = "none";
-              document.getElementById("btnAbastecimentoRacaoAgua").style.display = "none";
-            }
+    if (ponto == false) {
+      document.getElementById("btnAbastecimentoAgua").style.display = "none";
+      document.getElementById("btnAbastecimentoRacao").style.display = "none";
+      document.getElementById("btnAbastecimentoRacaoAgua").style.display = "none";
+    }
+
+    if (ponto == 1) {
+      document.getElementById("btnAbastecimentoRacao").style.display = "none";
+      document.getElementById("btnAbastecimentoRacaoAgua").style.display = "none";
+      document.getElementById("btnAbastecimentoAgua").style.border-radius = "2rem";
+      document.getElementById("hourRacao").style.display = "none";
+      document.getElementById('hourAgua').style.grid-template-columns = 'none';
+      };
+
+
+    }
+    if (ponto == 2) {
+      document.getElementById("btnAbastecimentoAgua").style.display = "none";
+      document.getElementById("btnAbastecimentoRacaoAgua").style.display = "none";
+      document.getElementById("btnAbastecimentoRacao").style.border-radius = "2rem";
+      document.getElementById("hourAgua").style.display = "none";
+      document.getElementById('hourAgua').style.grid-template-columns = 'none';
+
+    }
             
-          }
-          </script>
+          
+  </script>
 </head>
 
 <body onload="Seletor()">
@@ -71,12 +81,12 @@
 
     <main class="animate-appear with-sidebar">
       <div class="stop-details">
-        <img src="images/{{stop.firstImage}}" alt="{{stop.name}}" />
+        <img src="{{stop.firstImage}}" alt="{{stop.name}}" />
 
         <div class="images">
           {{#each stop.images}}
           <button onclick="selectImage(event)" class="active" type="button">
-            <img src="images/{{this}}" alt="{{stop.name}}" /> 
+            <img src="{{this}}" alt="{{stop.name}}" />
           </button>
           {{/each}}
 
@@ -105,7 +115,7 @@
           <p>Você pode contribuir com ração, água e muito amor =D</p>
 
           <div class="open-details">
-            <div class="hour">
+            <div class="hour" id="hourAgua">
               <div class="topo-open-details">
                 <div class="icon">
                   <img src="/images/gota-agua.svg" alt="Horários" />
@@ -119,7 +129,7 @@
               </div>
             </div>
 
-            <div class="hour">
+            <div class="hour" id="hourRacao">
               <div class="topo-open-details">
                 <div class="icon">
                   <img src="/images/dog-bowl.svg" alt="Horários" />
@@ -144,27 +154,24 @@
             <legend>Abastecer esse ponto?</legend>
 
             <div class="input-block">
-              <label for="abastece-hidratacao-alimentacao">Qual ponto deseja cadastrar?</label>
+              <label for="abastece-hidratacao-alimentacao">Qual ponto deseja abastecer?</label>
               <input type="hidden" id="pha" name="pha" value="1" required />
 
-              //Condição para mostrar o botão de abastecimento de acordo com o tipo de ponto cadastrado
-
-              {{!-- {{#isEqual stop.pha "1"}} --}}
               <div class="button-select">
                 <button data-value="1" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoAgua">
                   Água
                 </button>
-                {{!-- {{else if isEqual stop.pha "2"}} --}}
+
                 <button data-value="2" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoRacao">
                   Ração
                 </button>
 
-                {{!-- {{else}} --}}
-                <button data-value="3" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoRacaoAgua" class="active">
+                <button data-value="3" onclick="toggleSelect(event)" type="button" id="btnAbastecimentoRacaoAgua"
+                  class="active">
                   Água e Ração
                 </button>
               </div>
-              {{!-- {{/isEqual}} --}}
+
               <button type="submit" onclick="confirmarAbastecimento()" id="btnSalvarAbastecimento"
                 class="primary-button">
                 Abastecer</button>

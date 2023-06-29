@@ -40,12 +40,17 @@ fieldset legend{
     line-height: 1.5rem;
 }                                       
 
+.input-block .campo-obrigatorio{
+    color: red;
+    margin: 0;
+}
 .input-block label span{
     font-size: 1.4rem;
     color: #8fa7b3;
     margin-left: 2.4rem;
     line-height: 1.5rem;
 }
+
 
 .input-block input,
 .input-block textarea{
@@ -60,6 +65,7 @@ fieldset legend{
 .input-block input{
     height: 6.4rem;
     padding: 1.6rem 1.6rem 0;
+    margin-top: 5px;
 }
 
 .input-block input:valid,
