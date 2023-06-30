@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localize uma Parada | PetStop</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <link rel="icon" href="/images/logo-icon.png" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/page-stops.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="page-stops">
+      <aside class="animate-rigth">
+        <header>
+          <a href="http://127.0.0.1:5500/">
+          <img src="/images/map-marker.svg" alt="PetStop" />
+          </a>
+
+          <h2>Escolha uma parada no mapa</h2>
+
+          <p>Muitos Pets precisam da sua ajuda :)</p>
+        </header>
+
+        <footer>
+          <strong>Rio de Janeiro</strong>
+          <p>Maricá</p>
+        </footer>
+      </aside>
+
+      <div id="mapid" class="animate-appear"></div>
+
+      <div class="stops">
+        {{#each stops}}
+          <span hidden
+            data-id="{{this.id}}"
+            data-name="PetStop {{this.bairro}} #{{this.id}}"
+            data-lat="{{this.lat}}"
+            data-lng="{{this.lng}}"
+          ></span>
+        {{/each}}
+      </div>
+
+      <a
+        href="/create-stop"
+        class="create-stops"
+        title="Cadastre um ponto de Alimentaçao"
+      >
+        <img src="/images/plus.svg" alt="Criar ponto" />
+      </a>
+    </div>
+
+    <script src="/scripts/page-stops.js"></script>
+  </body>
+</html>
